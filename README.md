@@ -28,7 +28,7 @@ To override some of default server configuration files, map your files as follow
 docker run -d -p 19132:19132/udp \
   -v <absolute_host_path_to_yours_one>:/bedrock/server.properties \
   -v <absolute_host_path_to_yours_one>:/bedrock/permissions.json \
-  -v <absolute_host_path_to_yours_one>:/bedrock/whitelist.json \
+  -v <absolute_host_path_to_yours_one>:/bedrock/allowlist.json \
   tchorwat/bedrock-in-docker
 ```
 
@@ -105,7 +105,7 @@ docker rm bedrock_1_v1
 ## S3 Support
 Tag tchorwat/bedrock-in-docker:__s3__ support storing backup of worlds and config files in s3 bucket. Two additional environment variables was added:
 - BEDROCK_IN_DOCKER_BACKUP_s3_URI - uri to bucket and prefix to store backup data, by example: `s3://<your-bucket>/<your-prefix>`
-- BEDROCK_IN_DOCKER_CONFIG_s3_URI - uri to bucket and prefix to store config files, by example: `s3://<your-bucket>/<your-prefix>/config`. Only:`server.properties`, `permissions.json`, `whitelist.json` will be stored.
+- BEDROCK_IN_DOCKER_CONFIG_s3_URI - uri to bucket and prefix to store config files, by example: `s3://<your-bucket>/<your-prefix>/config`. Only:`server.properties`, `permissions.json`, `allowlist.json` will be stored.
 
 To initialize new container just put your files inside `s3://<your-bucket>/<your-prefix>/config` and start container:
 
@@ -148,7 +148,7 @@ docker run -d --restart unless-stopped \
   -p 19133:19133/udp \
   -v $(pwd)/server.properties:/bedrock/server.properties \
   -v $(pwd)/permissions.json:/bedrock/permissions.json \
-  -v $(pwd)/whitelist.json:/bedrock/whitelist.json \
+  -v $(pwd)/allowlist.json:/bedrock/allowlist.json \
   -e BEDROCK_IN_DOCKER_RESTART_TIME_UTC="03:00" \
   -v bedrock_1-worlds:/bedrock/worlds \
   -v bedrock_1-backups:/backups \

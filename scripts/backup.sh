@@ -15,5 +15,5 @@ fi
 if [ ! -z "$BEDROCK_IN_DOCKER_CONFIG_s3_URI" ]
 then
   echo "Backup config to $BEDROCK_IN_DOCKER_CONFIG_s3_URI/"
-  aws s3 sync . $BEDROCK_IN_DOCKER_CONFIG_s3_URI/ --exclude "*" --include "server.properties" --include "permissions.json" --include "whitelist.json"
+  aws s3 sync . $BEDROCK_IN_DOCKER_CONFIG_s3_URI/ --exclude "*" --include "server.properties" --include "permissions.json" --include "allowlist.json"
 fi

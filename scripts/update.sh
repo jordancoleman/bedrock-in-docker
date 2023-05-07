@@ -24,7 +24,7 @@ else
         wget --no-verbose -O "/downloads/$DownloadFile" "$DownloadURL"
         if [ -f "/bedrock/server.properties" ]
         then
-          unzip -q -o "/downloads/$DownloadFile" -x "*server.properties*" "*permissions.json*" "*whitelist.json*" -d /bedrock/
+          unzip -q -o "/downloads/$DownloadFile" -x "*server.properties*" "*permissions.json*" "*allowlist.json*" -d /bedrock/
         else
           unzip -q -o "/downloads/$DownloadFile" -d /bedrock/
         fi
